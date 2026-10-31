@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FREE BOBUX!</title>
+
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    color: white;
+    background:
+      linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.85)),
+      repeating-linear-gradient(
+        45deg,
+        #426b35 0px,
+        #426b35 40px,
+        #36592c 40px,
+        #36592c 80px
+      );
+  }
+
+  .card {
+    width: min(90%, 430px);
+    padding: 30px;
+    text-align: center;
+    background: #202020;
+    border: 4px solid #6b9c43;
+    border-radius: 12px;
+    box-shadow: 0 0 30px #000;
+  }
+
+  h1 {
+    color: #91e45a;
+    font-size: 36px;
+    margin-top: 0;
+  }
+
+  .robux {
+    font-size: 65px;
+    margin: 10px 0;
+  }
+
+  p {
+    color: #ddd;
+    line-height: 1.5;
+  }
+
+  button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 8px;
+    background: #79c943;
+    color: #10200a;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: #9df263;
+  }
+
+  #result {
+    display: none;
+    margin-top: 20px;
+    padding: 15px;
+    background: #333;
+    border-radius: 8px;
+  }
+
+  #result h2 {
+    color: #ff5555;
+  }
+
+  .small {
+    font-size: 12px;
+    color: #999;
+  }
+</style>
+</head>
+
+<body>
+  <main class="card">
+    <h1>FREE BOBUX!</h1>
+
+    <div class="robux">🤑</div>
+
+    <p>
+      Congratulations! You have been selected
+      to receive 999,999 FREE BOBUX!
+    </p>
+
+    <p>Click below to claim your prize!</p>
+
+    <button id="claim">CLAIM MY BOBUX</button>
+
+    <div id="result">
+      <h2>GOTCHA!</h2>
+      <p>
+        Sai Si, you really thought you were getting
+        free Bobux? 😂
+      </p>
+      <p>You've been pranked by Real Noob!</p>
+    </div>
+
+    <p class="small">
+      This is a harmless prank. No downloads or account
+      information required.
+    </p>
+  </main>
+
+<script>
+  const button = document.getElementById("claim");
+  const result = document.getElementById("result");
+
+  button.addEventListener("click", function () {
+    button.disabled = true;
+    button.textContent = "CLAIMING BOBUX...";
+
+    let seconds = 3;
+
+    button.textContent = "Downloading... " + seconds;
+
+    const timer = setInterval(function () {
+      seconds--;
+
+      if (seconds > 0) {
+        button.textContent = "Downloading... " + seconds;
+      } else {
+        clearInterval(timer);
+        button.style.display = "none";
+        result.style.display = "block";
+      }
+    }, 1000);
+  });
+</script>
+</body>
+</html>
